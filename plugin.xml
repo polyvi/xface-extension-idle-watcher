@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        id="com.polyvi.xface.extension.XIdleWatcherExt"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        version="3.0.0">
+
+    <name>IdleWatcher</name>
+    <author>PolyVi Inc.</author>
+    <description>xFace Idle-Watcher Extension</description>
+    <license>Apache 2.0</license>
+    <keywords>cordova,xface,IdleWatcher</keywords>
+
+
+    <js-module src="www/IdleWatcher.js" name="IdleWatcher">
+        <clobbers target="window.xFace.IdleWatcher" />
+    </js-module>
+
+    <engines>
+      <engine name="cordova" version=">=2.5.0" />
+    </engines>
+
+    <!-- android -->
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="IdleWatcher">
+                <param name="android-package" value="com.polyvi.xface.extension.XIdleWatcherExt"/>
+            </feature>
+        </config-file>
+
+        <source-file src="src/android/XIdleWatcherExt.java" target-dir="src/com/polyvi/xface/extension" />
+
+     </platform>
+</plugin>

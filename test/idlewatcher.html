@@ -1,0 +1,88 @@
+<!--
+ Licensed to the Apache Software Foundation (ASF) under one
+ or more contributor license agreements.  See the NOTICE file
+ distributed with this work for additional information
+ regarding copyright ownership.  The ASF licenses this file
+ to you under the Apache License, Version 2.0 (the
+ "License"); you may not use this file except in compliance
+ with the License.  You may obtain a copy of the License at
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing,
+ software distributed under the License is distributed on an
+ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ KIND, either express or implied.  See the License for the
+ specific language governing permissions and limitations
+ under the License.
+-->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width,height=device-height,user-scalable=no,maximum-scale=1.0,initial-scale=1.0" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8"> <!-- ISO-8859-1 -->
+    <title>xFace Mobile Spec</title>
+    <link rel="stylesheet" href="./master.css" type="text/css" media="screen" title="no title" charset="utf-8">
+    <script type="text/javascript" charset="utf-8" src="../xface.js"></script>
+    <script type="text/javascript" charset="utf-8">
+        function start() {
+            document.getElementById('status').innerText = "start";
+            document.getElementById('result').innerText = "";
+            xFace.IdleWatcher.start(5, success, fail);
+            function success(timeoutflag) {
+                if(timeoutflag=="timeout"){
+                    alert("timeout 10:"+timeoutflag);
+                }else{
+                    document.getElementById('result').innerText = "success!";
+                }
+            }
+
+            function fail() {
+                document.getElementById('result').innerText = "failed!";
+            }
+        }
+
+        function stop() {
+            document.getElementById('status').innerText = "stop";
+            document.getElementById('result').innerText = "success!";
+            xFace.IdleWatcher.stop();
+        }
+
+        function failCallback() {
+            document.getElementById('status').innerText = "failCallback";
+            document.getElementById('result').innerText = "";
+            xFace.IdleWatcher.start(-20, success, fail);
+            function success() {
+               document.getElementById('result').innerText = "success!";
+               if(timeoutflag){
+                    alert("timeout 10");
+                }
+            }
+
+            function fail() {
+                document.getElementById('result').innerText = "failed!";
+            }
+        }
+    </script>
+  </head>
+  <body id="stage" class="theme">
+    <h1>idlewatcher </h1>
+    <div id="descr">
+        测试说明: <br/>
+            本测试是测试IdleWatcher扩展，该扩展是监听手机是否正在被操作<br/>
+            1.点击“开始监听”，显示“success”。如果手机没有被操作超过5秒后，弹出"timeout 10"对话框。<br/>
+            2.点击“停止监听”，显示“success”。停止正在运行的IdleWatcher<br/>
+            3.点击“错误回调”，显示“failed”。<br/>
+            注意：点击“错误回调”按钮，则“开始监听”按钮的作用失效。<br/>
+    </div>
+    <div id="info">
+    status: <span id="status"></span><br/>
+    result: <span id="result"></span><br/>
+    </div>
+    <h2>Action</h2>
+    <div class="btnbtn" value="start" onclick="start();">开始监听</div>
+    <div class="btnbtn" value="stop" onclick="stop();">停止监听</div>
+    <div class="btnbtn" value="failCallback" onclick="failCallback();">错误回调</div>
+  </body>
+</html>
