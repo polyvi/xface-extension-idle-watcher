@@ -31,4 +31,16 @@
         <source-file src="src/android/XIdleWatcherExt.java" target-dir="src/com/polyvi/xface/extension" />
 
      </platform>
+
+     <!-- ios -->
+     <platform name="ios">
+        <config-file parent="/*" target="config.xml">
+            <feature name="IdleWatcher">
+                <param name="ios-package" value="XIdleWatcherExt" />
+            </feature>
+        </config-file>
+        <header-file src="src/ios/XIdleWatcherExt.h" />
+        <source-file src="src/ios/XIdleWatcherExt.m" />
+    </platform>
+
 </plugin>
