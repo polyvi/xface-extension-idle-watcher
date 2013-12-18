@@ -19,7 +19,7 @@
  along with xFace.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-package com.polyvi.xface.extension;
+package com.polyvi.xface.extension.idlewatcher;
 
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;
