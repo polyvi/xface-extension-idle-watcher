@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
-        id="com.polyvi.xface.extension.XIdleWatcherExt"
+        id="com.polyvi.xface.extension.idlewatcher"
         xmlns:android="http://schemas.android.com/apk/res/android"
         version="3.0.0">
 
@@ -9,10 +9,10 @@
     <author>PolyVi Inc.</author>
     <description>xFace Idle-Watcher Extension</description>
     <license>Apache 2.0</license>
-    <keywords>cordova,xface,IdleWatcher</keywords>
+    <keywords>xface,idlewatcher</keywords>
 
 
-    <js-module src="www/IdleWatcher.js" name="IdleWatcher">
+    <js-module src="www/idlewatcher.js" name="idlewatcher">
         <clobbers target="window.xFace.IdleWatcher" />
     </js-module>
 
