@@ -21,3 +21,8 @@
 -->
 
 # Release Notes
+### 1.0.0 Tue Jan 07 2014 16:09:08 GMT+0800 (CST)
+ *  update plugin version&license
+ *  Modify plugin id
+ *  [android]Modify source codes package path
+ *  added jasmine tests unique id
