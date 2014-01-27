@@ -26,3 +26,6 @@
  *  Modify plugin id
  *  [android]Modify source codes package path
  *  added jasmine tests unique id
+### 1.0.1 Mon Jan 27 2014 15:56:39 GMT+0800 (CST)
+ *  batch modify .reviewboard
+ *  Incremented plugin version on dev branch to 1.0.1-dev
